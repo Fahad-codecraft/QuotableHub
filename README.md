@@ -1,12 +1,12 @@
 # ReadMe.md
 
-Quotopia is a free, open source quotes API. Highly Inspired By [quotable.io](quotables.io) by [lukePeavey](https://github.com/lukePeavey). With access to over a million carefully curated quotes spanning various themes, Quotopia API offers an expansive collection to enrich your applications, websites, or creative projects.
+QuotableHub is a free, open source quotes API. Highly Inspired By [quotable.io](quotables.io) by [lukePeavey](https://github.com/lukePeavey). With access to over a million carefully curated quotes spanning various themes, QuotableHub API offers an expansive collection to enrich your applications, websites, or creative projects.
 
-As the sole architect of Quotopia, I&#039;ve meticulously curated a vast database featuring quotes, a small fraction of approximately 7000 quotes contains some inaccuracies and duplicarions which was missed during creating the dataset. However, the rest have been thoroughly checked for reliability and quality.
+As the sole architect of QuotableHub, I&#039;ve meticulously curated a vast database featuring quotes, a small fraction of approximately 7000 quotes contains some inaccuracies and duplicarions which was missed during creating the dataset. However, the rest have been thoroughly checked for reliability and quality.
 
-I take immense pride in this creation and remain committed to continually refining and improving Quotopia. Your support and understanding are invaluable as I work towards perfecting this repository of inspiration.
+I take immense pride in this creation and remain committed to continually refining and improving QuotableHub. Your support and understanding are invaluable as I work towards perfecting this repository of inspiration.
 
-Stay tuned! Quotopia is continuously evolving. More exciting features are on the way to enhance your experience with an even larger collection of accurate quotes and smoother functionality.
+Stay tuned! QuotableHub is continuously evolving. More exciting features are on the way to enhance your experience with an even larger collection of accurate quotes and smoother functionality.
 
 # Rate Limit
 
@@ -14,13 +14,13 @@ There is a rate limit of **180 requests per minute**, per IP address.  If you 
 
 # API servers
 
-```Plain Text
-
+```HTTP
+https://www.quotablehub.tech/
 ```
 
 # Get Random Quotes
 
-```javascript
+```HTTP
 GET / quotes / random;
 ```
 
@@ -38,64 +38,64 @@ By default, this method returns a single quote randomly, but, you can customize 
 
 ##### Response
 
-```javascript
+```ts
 // An array containing one or more Quotes
 Array<{
-  _id: string
+  _id: string;
   // The quote text
-  Quote: string
+  Quote: string;
   // The full name of the author
-  Author: string
+  Author: string;
   // The `slug` of the quote author
-  Tag: string[]
+  Tag: string[];
   // The length of quote (number of characters)
-  length: number
+  length: number;
   // An array of tag names for this quote
-  slug: string
-}>
+  slug: string;
+}>;
 ```
 
 ### Examples
 
 Get random quote
 
-```Plain Text
+```HTTP
 GET /quotes/random
 ```
 
 Get 5 random quotes
 
-```Plain Text
+```HTTP
 GET /quotes/random?limit=3
 ```
 
 Random Quote with tags &quot;tech&quot; `AND` &quot;love&quot;
 
-```Plain Text
+```HTTP
 GET /quotes/random?tags=tech,love
 ```
 
 Random Quote with tags &quot;animal&quot; `OR` &quot;care&quot;
 
-```Plain Text
+```HTTP
 GET /quotes/random?tags=animal|care
 ```
 
 Random Quote with 100 characters maximum
 
-```Plain Text
+```HTTP
 GET /quotes/random?maxLength=100
 ```
 
 Random Quote between 100 - 150 characters
 
-```Plain Text
+```HTTP
 GET /quotes/random?minLength=100&maxLength=150
 ```
 
 # List Quotes
 
-```Plain Text
+```HTTP
 GET /quotes
 ```
 
@@ -110,7 +110,7 @@ Get all quotes matching a given query. By default, this will return a list of al
 | limit     | `Int`    | `default: 20` `min: 1` `max: 150` The number of quotes you want per page                                                                                                                                                                                                                                                                                                                          |
 | page      | `Int`    | the page number you want to set. `page`                                                                                                                                                                                                                                                                                                                                                           |
 
-```javascript
+```ts
 {
   // Current page number
   page: number,
@@ -143,44 +143,44 @@ Array<{
 
 Get first page of quotes, with default limit: 20 results per page
 
-```Plain Text
+```HTTP
 GET /quotes?page=1
 ```
 
 Get second page of quotes, with 30 results per page
 
-```Plain Text
+```HTTP
 GET /quotes?page=2&limit=30
 ```
 
 Get all quotes with tags `love` `OR` `happiness`
 
-```Plain Text
+```HTTP
 GET /quotes?tags=love|happiness
 ```
 
 Get all quotes with tags `technology` `AND` `love`
 
-```Plain Text
+```HTTP
 GET /quotes?tags=technology,love
 ```
 
 Get all quotes by `author` or by `slug`
 
-```Plain Text
+```HTTP
 GET /quotes?author=albert einstein
 GET /quotes?slug=albert-einstein
 ```
 
 # Get a quote by its ID
 
-```Plain Text
+```HTTP
 GET /quotes/:id
 ```
 
 #### Response
 
-```javascript
+```ts
 {
   _id: string
   // The quote text
@@ -197,7 +197,7 @@ GET /quotes/:id
 
 # List Authors
 
-```Plain Text
+```HTTP
 GET /authors
 ```
 
@@ -212,86 +212,86 @@ Get all authors matching the given query. You can look for specific authors by t
 | limit  | `Int`    | `Min: 1` `Max: 150` `Default: 20`. Sets the number of results per page.                                                                                       |
 | page   | `Int`    | `Min: 1` `Default: 1`. The page of results to return. If the value is greater than the total number of pages, request will not return any results             |
 
-```javascript
+```ts
 {
   // Current page number
-    page: number
+  page: number;
   // max quotes per page
-    limit: number
+  limit: number;
   // total number of authors mathing this request
-    totalAuthors: number
+  totalAuthors: number;
   // toatal number of pages matching this request
-    totalPages: number
+  totalPages: number;
   // The array of authors
-      authors: Array<{
-      // A unique id for this author
-        _id: string
-      // quote text
-        Quote: string
-      // author name
-        Author: string
-      // Tags
-        Tags: string[]
-      // length of the quote in characters
-        length: number
-      // slug of author
-        slug: string
-    }>
- }
+  authors: Array<{
+    // A unique id for this author
+    _id: string;
+    // quote text
+    Quote: string;
+    // author name
+    Author: string;
+    // Tags
+    Tags: string[];
+    // length of the quote in characters
+    length: number;
+    // slug of author
+    slug: string;
+  }>;
+}
 ```
 
 There will be 2 kind of response first one is above without sortBy and order, and second one is of with sortBy and order. dont use sortBy and order with slug or name as it will not work.
 Here is second kind of response
 
-```javascript
+```ts
 {
   // Current page number
-    page: number
+  page: number;
   // max quotes per page
-    limit: number
+  limit: number;
   // total number of authors mathing this request
-    totalAuthors: number
+  totalAuthors: number;
   // toatal number of pages matching this request
-    totalPages: number
+  totalPages: number;
   // The array of authors
-      authors: Array<{
-      // how many quotes of the author:
-        QuoteCount: number
-      // Author name
-        Author: string
-    }>
- }
+  authors: Array<{
+    // how many quotes of the author:
+    QuoteCount: number;
+    // Author name
+    Author: string;
+  }>;
+}
 ```
 
 ##### Examples
 
 Get all authors, sorted alphabetically by name
 
-```Plain Text
+```HTTP
 GET /authors?sortBy=name
 ```
 
 Get all authors, sorted by number of quotes in descending order
 
-```Plain Text
+```HTTP
 GET /authors?sortBy=quoteCount&order=desc
 ```
 
 Get a single author by slug.
 
-```Plain Text
+```HTTP
 GET /authors?slug=abraham-lincoln
 ```
 
 Get multiple authors by slug. In this case, you provide a pipe-separated list of slugs
 
-```Plain Text
+```HTTP
 GET /authors?slug=albert-einstein|abraham-lincoln
 ```
 
 # Search Quotes
 
-```Plain Text
+```HTTP
 GET /search/quotes
 ```
 
@@ -308,34 +308,34 @@ This allows you to search for quotes by keywords, content, and/or author name.
 
 ##### Response
 
-```javascript
+```ts
 {
   //Page info
-    pageInfo:{
-      // current page number
-        page: number
-      // result per page
-        limit: number
-      // total results found
-        totalResults: number
-      // total number of pages
-        totalPages: number
-    }
-   // results
-    results: Array<{
+  pageInfo: {
+    // current page number
+    page: number;
+    // result per page
+    limit: number;
+    // total results found
+    totalResults: number;
+    // total number of pages
+    totalPages: number;
+  }
+  // results
+  results: Array<{
     // unique id
-      _id: string
+    _id: string;
     // quote text
-      Quote: string
+    Quote: string;
     // author name
-      Author: string
+    Author: string;
     // tags
-      Tags: string[]
+    Tags: string[];
     // length of quote in characters
-      length: number
+    length: number;
     // author slug
-      slug: string
-    }>
+    slug: string;
+  }>;
 }
 ```
 
@@ -343,7 +343,7 @@ This allows you to search for quotes by keywords, content, and/or author name.
 
 Search for &quot;only a life lived for others is a&quot;
 
-```Plain Text
+```HTTP
 GET /search/quotes?query=only a life lived for others is a life worthwhile
 ```
 
@@ -353,7 +353,7 @@ GET /search/quotes?query=only a life lived for others is a life worthwhile
 
 Search for the phrase &quot;divided house&quot;
 
-```Plain Text
+```HTTP
 GET /search/quotes?query=love life
 ```
 
@@ -363,13 +363,13 @@ GET /search/quotes?query=love life
 
 Search for quotes by an author named &quot;kennedy&quot;
 
-```Plain Text
+```HTTP
 GET /search/quotes?query=Kennedy&fields=author
 ```
 
 # Search Authors
 
-```Plain Text
+```HTTP
 GET  /search/authors
 ```
 
@@ -383,31 +383,31 @@ This endpoint allows you search for authors by name.
 
 ##### Response
 
-```javascript
+```ts
 {
   // current page number
-  page: number
+  page: number;
   // result per page
-  limit: number
+  limit: number;
   // total results found
-  totalResults: number
+  totalResults: number;
   // total number of pages
-   totalPages: number
+  totalPages: number;
   // authors
-    authors: Array<{
+  authors: Array<{
     // unique id
-      _id: string
+    _id: string;
     // quote text
-      Quote: string
+    Quote: string;
     // author name
-      Author: string
+    Author: string;
     // tags
-      Tags: string[]
+    Tags: string[];
     // length of quote in characters
-      length: number
+    length: number;
     // author slug
-      slug: string
-    }>
+    slug: string;
+  }>;
 }
 ```
 
@@ -415,7 +415,7 @@ This endpoint allows you search for authors by name.
 
 Search for author named &quot;lincoln&quot;
 
-```Plain Text
+```HTTP
 GET /search/authors?query=lincoln
 ```
 
@@ -425,23 +425,14 @@ GET /search/authors?query=lincoln
 
 Search for &quot;mark mason&quot;
 
-```Plain Text
+```HTTP
 GET /search/authors?query=mark mason
 ```
 
 Search for &quot;John Quincy Adams&quot;
 
-```Plain Text
+```HTTP
 GET /search/authors?query=john quincy adams
 ```
 
-Stay tuned! Quotopia is continuously evolving. More exciting features are on the way to enhance your experience with an even larger collection of accurate quotes and smoother functionality.
-
-                                                                                                                                                                                                                                      |
-
-
-
-
-        |
-
-                                                                                                                        |
+Stay tuned! QuotableHub is continuously evolving. More exciting features are on the way to enhance your experience with an even larger collection of accurate quotes and smoother functionality.
