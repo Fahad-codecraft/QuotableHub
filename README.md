@@ -20,10 +20,6 @@ https://www.quotablehub.tech/
 
 # Get Random Quotes
 
-```HTTP
-GET /quotes/random
-```
-
 Get one or more random quotes from the database using filters that enable selecting quotes based on specific properties like `tags` or `length` etc.
 
 By default, this method returns a single quote randomly, but, you can customize it how you want, you can specify how much random quotes you want using `limit` parameter.
