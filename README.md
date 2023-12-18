@@ -1,4 +1,4 @@
-# ReadMe.md
+# README.md
 
 QuotableHub is a free, open source quotes API. Highly Inspired By [quotable.io](quotables.io) by [lukePeavey](https://github.com/lukePeavey). With access to over a million carefully curated quotes spanning various themes, QuotableHub API offers an expansive collection to enrich your applications, websites, or creative projects.
 
