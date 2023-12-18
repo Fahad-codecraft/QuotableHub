@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(limiter);
 app.get("/", async (req, res) => {
-  res.send("Hello World");
+  res.redirect("https://github.com/Fahad-codecraft/QuotableHub");
 })
 app.use(quoteRoutes)
 
