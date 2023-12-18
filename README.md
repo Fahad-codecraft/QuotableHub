@@ -21,7 +21,7 @@ https://www.quotablehub.tech/
 # Get Random Quotes
 
 ```HTTP
-GET /quotes/random;
+GET /quotes/random
 ```
 
 Get one or more random quotes from the database using filters that enable selecting quotes based on specific properties like `tags` or `length` etc.
