@@ -1,6 +1,0 @@
-| param  | type         | Description                                                                                                                                                                |   |
-|--------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-| query  | ```string``` | The search string. The query can be wrapped in quotes to search for an exact phrase.                                                                                       |   |
-| fields | ```string``` | ```Default: "content,author"``` Specify the fields to search by. Supported search fields are "content", "author". By default, it will search by all fields simultaneously. |   |
-|        |              |                                                                                                                                                                            |   |
-|        |              |                                                                                                                                                                            |   |
