@@ -1,6 +1,6 @@
 # README.md
 
-QuotableHub is a free, open source quotes API. Highly Inspired By [quotable.io](https://github.com/lukePeavey/quotable) by [lukePeavey](https://github.com/lukePeavey). With access to over a million carefully curated quotes spanning various themes, QuotableHub API offers an expansive collection to enrich your applications, websites, or creative projects.
+QuotableHub is a free, open source quotes API. Highly Inspired By [quotable.io](https://github.com/lukePeavey/quotable.git) by [lukePeavey](https://github.com/lukePeavey). With access to over a million carefully curated quotes spanning various themes, QuotableHub API offers an expansive collection to enrich your applications, websites, or creative projects.
 
 As the sole architect of QuotableHub, I&#039;ve meticulously curated a vast database featuring quotes, a small fraction of approximately 7000 quotes contains some inaccuracies and duplicarions which was missed during creating the dataset. However, the rest have been thoroughly checked for reliability and quality.
 
