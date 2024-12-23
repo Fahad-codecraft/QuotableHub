@@ -15,7 +15,7 @@ There is a rate limit of **180 requests per minute**, per IP address.  If you 
 # API servers
 
 ```
-https://www.quotable-hub.vercel.app/
+https://quotable-hub.vercel.app/
 ```
 
 # Get Random Quotes
